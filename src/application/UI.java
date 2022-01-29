@@ -19,7 +19,7 @@ public class UI {
 		if(piece==null) {
 			System.out.print("-");//se piece for null ficara vazio	
 		}
-		else {
+		else{
 			System.out.print(piece);//caso contrario imprime a peça
 		}
 		System.out.print(" ");
