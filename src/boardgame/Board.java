@@ -45,6 +45,18 @@ public class Board {
 		pieces[position.getRow()][position.getColumn()] = piece;
 		piece.position = position; //apenas foi possivel acessar o position pois ele esta como protected e é do mesmo pacote
 	}
+	public Piece removePiece(Position position) {
+		if(!positionExists(position)) {//programaçao defensiva
+			throw new BoardException("Position is not on the board ");
+		}
+		if (piece(position)== null) {
+			return null;
+		}
+		Piece aux =piece(position);
+		aux.position = null;//transforma a posição da peça em null
+		pieces[position.getRow()][position.getColumn()]= null;
+		return aux;
+	}
 	//metodo auxiliar pois é mais facil pegar a posição separada (coluna e linha) do que direto a posição
 	private boolean positionExists(int row, int column) {
 		return row >= 0 && row < rows && column >= 0 && column < columns;//retorna condição
@@ -60,5 +72,6 @@ public class Board {
 		}
 		return piece(position) !=null; //se a peça dessa posição for diferente de null significa que tem uma peça 
 	}
+	
 
 }
