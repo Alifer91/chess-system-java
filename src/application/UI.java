@@ -52,17 +52,32 @@ public class UI {
 		for (int i = 0; i < pieces.length; i++) {
 			System.out.print((8 - i) + " ");// para fazer a contagem das posiç verticais
 			for (int j = 0; j < pieces.length; j++) {
-				printPiece(pieces[i][j]);
+				printPiece(pieces[i][j],false);//indica que nenhuma peça tem que possuir cor de fundo
 			}
 			System.out.println();// apenas para quebrar a linha
 		}
 		System.out.println("  a b c d e f g h ");
 
 	}
+	public static void printBoard(ChessPiece[][] pieces,boolean[][]possibleMoves) {//versão alternativa do print board que colore os movimentos possiveis
 
-	private static void printPiece(ChessPiece piece) {//metodo para imprimir a peça
+		for (int i = 0; i < pieces.length; i++) {
+			System.out.print((8 - i) + " ");
+			for (int j = 0; j < pieces.length; j++) {
+				printPiece(pieces[i][j],possibleMoves[i][j]);//se for o caso mude a cor de fundo dessa posição
+			}
+			System.out.println();
+		}
+		System.out.println("  a b c d e f g h ");
+
+	}
+
+	private static void printPiece(ChessPiece piece ,boolean background) {//metodo para imprimir a peça
+		if(background) {
+			System.out.print(ANSI_BLUE_BACKGROUND);//se verdadeira muda a cor do fundo para azul
+		}
     	if (piece == null) {
-            System.out.print("-");
+            System.out.print("-"+ ANSI_RESET);
         }
         else {
             if (piece.getColor() == Color.WHITE) {//se a cor for branca peça branca
