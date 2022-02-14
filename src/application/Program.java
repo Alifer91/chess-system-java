@@ -17,7 +17,7 @@ public class Program {
 		while(true) {
 			try {
 				UI.clearScreen();
-				UI.printBoard(chessMatch.getPieces());//UI é a classe user interface
+				UI.printMatch(chessMatch);//UI é a classe user interface
 				System.out.println();
 				System.out.print("Source: ");
 				ChessPosition source=UI.readChessPosition(sc);
