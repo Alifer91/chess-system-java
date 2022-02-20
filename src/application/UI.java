@@ -70,6 +70,10 @@ public class UI {
 		System.out.println();
 		System.out.println("Turn : "+ chessMatch.getTurn());
 		System.out.println("Waiting player: "+chessMatch.getCurrentPlayer());
+		//caso o getCheck da partida for true então avise na tela
+		if(chessMatch.getCheck()) {
+			System.out.println("CHECK!!");
+		}
 	}
 	public static void printBoard(ChessPiece[][] pieces,boolean[][]possibleMoves) {//versão alternativa do print board que colore os movimentos possiveis
 
